@@ -1,0 +1,102 @@
+[
+    {
+        "hostname_olt": "Mikrotik-001",
+        "ip_olt": "10.100.10.1",
+        "frame": "2",
+        "slot": "1",
+        "port": "2",
+        "onu_id": "3",
+        "sn": "Mermaid420020",
+        "nd": "1000000000001"
+    },
+    {
+        "hostname_olt": "Mikrotik-002",
+        "ip_olt": "10.100.10.2",
+        "frame": "1",
+        "slot": "2",
+        "port": "3",
+        "onu_id": "4",
+        "sn": "Mer260300",
+        "nd": "1000000000002"
+    },
+    {
+        "hostname_olt": "RoS_Additional_15",
+        "ip_olt": "10.100.167.15",
+        "frame": "2",
+        "slot": "3",
+        "port": "4",
+        "onu_id": "1",
+        "sn": "Maid520010",
+        "nd": "1000000000003"
+    },
+    {
+        "hostname_olt": "Mikrotik-167-5",
+        "ip_olt": "10.100.167.5",
+        "frame": "2",
+        "slot": "2",
+        "port": "1",
+        "onu_id": "1",
+        "sn": "Mid823000",
+        "nd": "1000000000004"
+    },
+    {
+        "hostname_olt": "Cisco-100.3",
+        "ip_olt": "10.100.10.4",
+        "frame": "2",
+        "slot": "4",
+        "port": "4",
+        "onu_id": "2",
+        "sn": "Bty420030",
+        "nd": "1000000000005"
+    },
+    {
+        "hostname_olt": "Cisco-100.4",
+        "ip_olt": "10.100.10.3",
+        "frame": "2",
+        "slot": "4",
+        "port": "1",
+        "onu_id": "2",
+        "sn": "Try250060",
+        "nd": "1000000000006"
+    },
+    {
+        "hostname_olt": "Cisco-100.5",
+        "ip_olt": "10.100.10.15",
+        "frame": "2",
+        "slot": "2",
+        "port": "4",
+        "onu_id": "1",
+        "sn": "Sat260200",
+        "nd": "1000000000007"
+    },
+    {
+        "hostname_olt": "Cisco-100.6",
+        "ip_olt": "10.100.10.6",
+        "frame": "1",
+        "slot": "2",
+        "port": "3",
+        "onu_id": "1",
+        "sn": "Ria720400",
+        "nd": "1000000000008"
+    },
+    {
+        "hostname_olt": "Cisco-100.7",
+        "ip_olt": "10.100.10.7",
+        "frame": "2",
+        "slot": "3",
+        "port": "1",
+        "onu_id": "2",
+        "sn": "Ama520200",
+        "nd": "1000000000009"
+    },
+    {
+        "hostname_olt": "Cisco-100.8",
+        "ip_olt": "10.100.10.8",
+        "frame": "4",
+        "slot": "2",
+        "port": "2",
+        "onu_id": "3",
+        "sn": "Nat620200",
+        "nd": "1000000000010"
+    }
+]

@@ -1,0 +1,61 @@
+# This is a sample build configuration for Go.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: "golang:1.14"
+
+pipelines:
+  default: # Run on every push
+    - step:
+        name: Test and Build
+        script: # Modify the commands below to build your repository.
+          - PACKAGE_PATH=${GOPATH}/src/ketitik/netmonk/mock-app-data
+          - mkdir -pv ${PACKAGE_PATH}
+          - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C ${PACKAGE_PATH}
+          - cd ${PACKAGE_PATH}
+          - bash ./_scripts/get_dep.sh                              # Get Dependency Packages
+          - bash ./_scripts/test_unit.sh                            # Test (unit-test)
+          - bash ./_scripts/test_race.sh                            # Test (if any race issue occurs)
+          - bash ./_scripts/build.sh                                # Build for API-Service
+
+  branches:
+    master: # Pipelines that run automatically on a commit to branch: master
+    - step:
+        name: Build and Push to Dockerhub
+        script: # Modify the commands below to build your repository.
+          - PACKAGE_PATH=${GOPATH}/src/ketitik/netmonk/mock-app-data
+          - mkdir -pv ${PACKAGE_PATH}
+          - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C ${PACKAGE_PATH}
+          - cd ${PACKAGE_PATH}
+          - bash ./_scripts/get_dep.sh                                    # Get Dependency Packages
+          - bash ./_scripts/test_unit.sh                                  # Test (unit-test)
+          - bash ./_scripts/test_race.sh                                  # Test (if any race issue occurs)
+          - bash ./_scripts/build_docker.sh                               # Build for Docker
+          - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD  # Dockerhub login
+          - version=`cat VERSION`
+          - docker push ketitik/mock-app-data:latest                # Latest
+          - docker push ketitik/mock-app-data:$version    # with tagging
+    # - step:
+    #     name: Deploy to production
+    #     deployment: production
+    #     script:
+    #       - bash ./_scripts/deploy.sh
+    development: # Pipelines that run automatically on a commit to branch: master
+    - step:
+        name: Build and Push Development to Dockerhub
+        script: # Modify the commands below to build your repository.
+          - PACKAGE_PATH=${GOPATH}/src/ketitik/netmonk/mock-app-data
+          - mkdir -pv ${PACKAGE_PATH}
+          - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C ${PACKAGE_PATH}
+          - cd ${PACKAGE_PATH}
+          - bash ./_scripts/get_dep.sh                                    # Get Dependency Packages
+          - bash ./_scripts/test_unit.sh                                  # Test (unit-test)
+          - bash ./_scripts/test_race.sh                                  # Test (if any race issue occurs)
+          - bash ./_scripts/build_docker.sh dev                           # Build for Docker
+          - docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD  # Dockerhub login
+          - version=`cat VERSION`"_dev"
+          - docker push ketitik/mock-app-data:$version    # Development tagging
+
+options:
+  docker: true

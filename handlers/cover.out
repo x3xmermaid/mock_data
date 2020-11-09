@@ -1,0 +1,8 @@
+mode: set
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:20.74,31.16 8 1
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:35.2,46.36 4 1
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:62.2,63.8 2 1
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:31.16,33.3 1 0
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:46.36,47.33 1 1
+ketitik/netmonk/mock-app-data/handlers/get_mock_data.go:47.33,59.4 11 1
+ketitik/netmonk/mock-app-data/handlers/handler.go:13.61,17.2 1 1

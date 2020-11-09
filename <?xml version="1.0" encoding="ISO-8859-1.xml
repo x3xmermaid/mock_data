@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:tns="http://10.62.165.53/soap/iBooster">
+    <SOAP-ENV:Body>
+        <ns1:ukurResponse xmlns:ns1="http://ibooster.telkom.co.id/api/soap.php">
+            <output xsi:type="tns:ukur_out">
+                <id_ukur xsi:type="xsd:string">1602669550947594</id_ukur>
+                <MESSAGE xsi:type="xsd:string">Nomor internet122421321601telkom.net tidak memiliki usage</MESSAGE>
+            </output>
+        </ns1:ukurResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

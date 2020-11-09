@@ -1,0 +1,14 @@
+FROM busybox
+MAINTAINER Developer Ketitik <developer@ketitik.com>
+
+# Working Directory
+WORKDIR /home/mock-app-data
+
+# Copy in the source
+COPY _bin/mock-app-data ./mock-app-data
+
+# Make shell scripts executable
+RUN chmod +x ./mock-app-data
+
+# Running
+CMD ["./mock-app-data"]
