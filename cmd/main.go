@@ -15,7 +15,7 @@ import (
 
 const (
 	// VERSION of this service.
-	VERSION = "1.0.0"
+	VERSION = "5.0.0"
 	// DEVELOPER of this service.
 	DEVELOPER = "Amoeba Ketitik"
 	// ConfigFileLocation is the file configuration of ths service.

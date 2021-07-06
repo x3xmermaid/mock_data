@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"encoding/xml"
+	"fmt"
 	"io/ioutil"
 	"ketitik/netmonk/mock-app-data/lib"
 	nrespwriter "ketitik/netmonk/mock-app-data/lib/responsewriter"
@@ -17,11 +18,17 @@ import (
 )
 
 const (
-	OnlineSmall  = "Online"
-	OnlineBig    = "ONLINE"
+	//OnlineSmall online
+	OnlineSmall = "Online"
+	//OnlineBig online
+	OnlineBig = "ONLINE"
+	//OfflineSmall OfflineSmall
 	OfflineSmall = "Offline"
-	OfflineBig   = "OFFLINE"
-	Los          = "LOS"
+	//OfflineBig OfflineBig
+	OfflineBig = "OFFLINE"
+	//Los los
+	Los = "LOS"
+	//Stop stop
 	Stop         = "Stop"
 	disconnected = "Disconnected"
 	dyingGasp    = "DYING GASP"
@@ -29,6 +36,7 @@ const (
 
 // GetXMLMockData get random mock data
 func (h *Handler) GetXMLMockData(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("mermaid")
 	rf := &nrespwriter.ResponseFormat{}
 	deviceStatus := &nmodel.XMLResponse{}
 
@@ -64,8 +72,10 @@ func (h *Handler) GetXMLMockData(w http.ResponseWriter, r *http.Request) {
 
 	messageShow := wr.NewChooser(
 		wr.Choice{Item: "showMessage", Weight: 1},
-		wr.Choice{Item: "hiddenMessage", Weight: 9},
+		wr.Choice{Item: "showMessage2", Weight: 5},
+		wr.Choice{Item: "hiddenMessage", Weight: 4},
 	)
+	fmt.Println("data")
 
 	statusONT := wr.NewChooser(
 		wr.Choice{Item: OnlineBig, Weight: 7},
@@ -131,7 +141,7 @@ func createXMLResponse(deviceStatus *nmodel.MockData, messageShow string) ([]byt
 
 	xmlFrame := output.CreateElement("frame")
 	xmlFrame.CreateAttr("xsi:type", "xsd:string")
-	xmlFrame.CreateText(deviceStatus.Frame)
+	xmlFrame.CreateText("test frame")
 
 	xmlSlot := output.CreateElement("slot")
 	xmlSlot.CreateAttr("xsi:type", "xsd:string")
@@ -184,7 +194,13 @@ func createXMLResponse(deviceStatus *nmodel.MockData, messageShow string) ([]byt
 	if messageShow == "showMessage" {
 		xmlMessage := output.CreateElement("MESSAGE")
 		xmlMessage.CreateAttr("xsi:type", "xsd:string")
-		xmlMessage.CreateText("nomor internet error")
+		xmlMessage.CreateText("nomor internet errors")
+	}
+
+	if messageShow == "showMessage2" {
+		xmlMessage := output.CreateElement("MESSAGE")
+		xmlMessage.CreateAttr("xsi:type", "xsd:string")
+		xmlMessage.CreateText("Nomor internet122421321601telkom.net tidak memiliki usage")
 	}
 
 	xmlDocByte, err := doc.WriteToBytes()

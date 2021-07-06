@@ -11,7 +11,7 @@ version=`cat VERSION`
 if [ "$1" = "dev" ]; then
     version=$version"_dev"
 fi
-docker build -t x3xmermaid/mock-app-data:latest -t x3xmermaid/mock-app-data:$version -f Dockerfile-Netmonk-Mock-App-Data .
+docker build -t x3xmermaid/mock-app-data-2:latest -t x3xmermaid/mock-app-data-2:$version -f Dockerfile-Netmonk-Mock-App-Data .
 if [ $? -ne 0 ]; then
     echo "->>> Building Failed."
     exit -1
